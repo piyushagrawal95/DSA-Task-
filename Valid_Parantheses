@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> ans=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ans.isEmpty()){
+                ans.push(ch);
+            }
+            else{
+                char c=ans.peek();
+                if(ch-c==1||ch-c==2){
+                    ans.pop();
+                }
+                else{
+                    ans.push(ch);
+                }
+            }
+        }
+        if(!ans.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+}
